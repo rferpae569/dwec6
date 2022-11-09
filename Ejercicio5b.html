@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio5b</title>
+    <script>
+         function rellena(evt){
+            //alert(evt.type);
+            document.querySelector("div").innerText=`${evt.target.id} Valor: ${evt.target.dataset.valor}`;
+            let a=setInterval(() => {
+                evt.target.value+=1;
+                console.log(a,evt.target.value);
+                if(evt.target.value==100){
+                    clearInterval(a);
+                }
+            }, 100);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const p=document.querySelectorAll("progress");
+            // for(let i=0;i<p.lenght;i++){
+            //     p.addEventListener("click",rellena ,{once:true});
+            // }
+
+           p.forEach((v)=>{
+            v.addEventListener("click",rellena,{once:true});
+           });
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+    <label for="fila1">Descarga 1:</label>
+    <progress id="file1" value="0" max="100" data-valor="coche">0%</progress>
+    <label for="fila2">Descarga 2:</label>
+    <progress id="file2" value="0" max="100" data-valor="moto">0%</progress>
+    <label for="fila3">Descarga 3:</label>
+    <progress id="file3" value="0" max="100" data-valor="perro">0%</progress>
+</body>
+</html>

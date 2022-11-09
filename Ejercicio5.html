@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio5</title>
+    <script>
+        function rellena(evt){
+            let a=setInterval(() => {
+                evt.target.value+=1;
+                console.log(a,evt.target.value);
+                if(evt.target.value==100){
+                    clearInterval(a);
+                }
+            }, 100);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const p=document.querySelector("progress");
+            p.addEventListener("click",rellena ,{once:true}); //El once true hace que lo ejecute solo una vez
+        });
+        
+    </script>
+</head>
+<body>
+    <label for="fila">Descarga</label>
+    <progress id="file" value="0" max="100">0%</progress>
+</body>
+</html>
